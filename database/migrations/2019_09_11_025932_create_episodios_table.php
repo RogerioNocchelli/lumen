@@ -13,18 +13,14 @@ class CreateEpisodiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('episodios', function (Blueprint $table) {
-            $table->tinyIncrements('id');
-            $table->integer('temporada');
-            $table->integer('numero');
-            $table->boolean('assistido')->default(0);
-            $table->integer('serie_id');
+        Schema::create('episode', function (Blueprint $table) {
+            $table->tinyIncrements('id')->index();
+            $table->integer('season');
+            $table->integer('number');
+            $table->boolean('watched')->default(false);
+            $table->integer('series_id')->index();
 
-            $table->foreign('serie_id')
-                  ->references('series')
-                  ->on('id');
-
-            $table->timestamps();
+            $table->foreign('series_id')->references('id')->on('series');
         });
     }
 

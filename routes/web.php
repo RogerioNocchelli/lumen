@@ -6,7 +6,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => '/api'], function () use ($router) {
-    $router->post('/series', 'SeriesController@createSerie');
+    $router->post('/series', 'SeriesController@createSeries');
     $router->get('/teste', 'SeriesController@index');
 });
 

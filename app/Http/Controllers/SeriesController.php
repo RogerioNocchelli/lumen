@@ -14,8 +14,7 @@ class SeriesController
 
     public function createSeries(Request $resquest)
     {
-        var_dump($resquest);
+        var_dump($resquest->all());
         exit;
-
     }
 }
